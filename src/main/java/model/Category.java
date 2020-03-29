@@ -1,17 +1,14 @@
 package model;
-
 import lombok.Data;
-
 import javax.persistence.*;
-
 @Entity
 @Data
 public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Cat_Id")
+    @Column(name = "CAT_ID")
     private int categoryId;
-    @Column(name = "Cat_name")
-    private String categoryName;
+    @Column(name = "CAT_NAME")
+    private String name;
 }

@@ -4,9 +4,8 @@ import util.HibernateUtil;
 public class przyklad1 {
     public static void main(String[] args) {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        Order address = session.find(Order.class, 1);
-        System.out.println(address.toString());
+        Address address = session.find(Address.class, 3);
         session.close();
-
+        System.out.println(address.toString());
     }
 }
