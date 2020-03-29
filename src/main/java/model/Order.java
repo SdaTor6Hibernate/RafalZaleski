@@ -1,14 +1,14 @@
 package model;
-
 import lombok.Data;
-
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Data
-@Table(name = "`order`")
+@Table(name = "orders")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,5 +21,10 @@ public class Order {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ORD_USR_ID", referencedColumnName = "USR_ID")
     private User user;
+
+
+
+    @ManyToMany(mappedBy = "orders")
+    private Set<Product> products = new HashSet<>();
 }
 
